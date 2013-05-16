@@ -1,4 +1,4 @@
-<h2>Viewing <span class='muted'>#<?php echo $game->id; ?></span></h2>
+<h3>Viewing <span class='muted'>#<?php echo $game->id; ?></span></h3>
 
 <p>
 	<strong>User:</strong>

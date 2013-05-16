@@ -1,6 +1,9 @@
-<h2>Listing <span class='muted'>Games</span></h2>
+
+<h3>Listing <span class='muted'>Games</span></h3>
+
 <br>
 <?php if ($games): ?>
+
 <table class="table table-striped">
 	<thead>
 		<tr>
@@ -32,6 +35,6 @@
 <p>No Games.</p>
 
 <?php endif; ?><p>
-	<?php echo Html::anchor('game/create', 'Add new Game', array('class' => 'btn btn-success')); ?>
+	<?php echo Html::anchor('game/create', 'Add new Game', array('class' => 'btn btn-warning')); ?>
 
 </p>

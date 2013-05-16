@@ -1,4 +1,4 @@
-<h2>New <span class='muted'>Game</span></h2>
+<h3>New <span class='muted'>Game</span></h3>
 <br>
 
 <?php echo render('game/_form'); ?>

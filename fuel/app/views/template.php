@@ -2,17 +2,22 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title><?php echo $title; ?></title>
+	<title>VG Unstuck | <?php echo $title; ?></title>
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<style>
 		body { margin: 40px; }
+		#tophead {background-color: #3e0092;color: white;}
+		#tophead h2 {padding-left: 10px;padding-top: 10px;}
 	</style>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
+		<div class="row-fluid">
 		<div class="span12">
-			<h1><?php echo $title; ?></h1>
+			<div id="tophead">
+			<h2>VG Unstuck | <?php echo $title; ?></h2>
 			<hr>
+		</div>
 <?php if (Session::get_flash('success')): ?>
 			<div class="alert alert-success">
 				<strong>Success</strong>
@@ -30,15 +35,20 @@
 			</div>
 <?php endif; ?>
 		</div>
+	</div>
+		<div class="row-fluid">
 		<div class="span12">
 <?php echo $content; ?>
 		</div>
+		</div>
 		<footer>
+			<!--
 			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
 			<p>
 				<a href="http://fuelphp.com">FuelPHP</a> is released under the MIT license.<br>
 				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
 			</p>
+		-->
 		</footer>
 	</div>
 </body>

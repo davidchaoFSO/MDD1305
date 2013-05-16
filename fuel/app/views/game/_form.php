@@ -36,7 +36,7 @@
 		<div class="control-group">
 			<label class='control-label'>&nbsp;</label>
 			<div class='controls'>
-				<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-primary')); ?>			</div>
+				<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-warning')); ?>			</div>
 		</div>
 	</fieldset>
 <?php echo Form::close(); ?>
