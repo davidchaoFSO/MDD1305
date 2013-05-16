@@ -16,6 +16,7 @@ return array(
 			'password'		=> 'root',
 			'database'		=> 'mdd1305',
 			'persistent'	=> false,
+			'port'			=> '8889'
 		),
 		'identifier'	=> '`',
 		'table_prefix'	=> '',
