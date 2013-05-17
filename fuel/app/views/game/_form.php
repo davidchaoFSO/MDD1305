@@ -19,10 +19,15 @@
 		</div>
 		<div class="control-group">
 			<?php echo Form::label('Status', 'status', array('class'=>'control-label')); ?>
-
+	
 			<div class="controls">
-				<?php echo Form::input('status', Input::post('status', isset($game) ? $game->status : ''), array('class' => 'span4', 'placeholder'=>'Status')); ?>
-
+				<!-- Custom dropdown for status -->
+				<?php echo Form::select('status', Input::post('status', isset($game) ? $game->status : ''),array(
+				    'In Progress' => 'In Progress',
+				    'Stuck' => 'Stuck',
+				    'Not Started' => 'Not Started',
+				    'Finished' => 'Finished',
+					),array('class' => 'span4'));?>
 			</div>
 		</div>
 		<div class="control-group">
@@ -36,7 +41,7 @@
 		<div class="control-group">
 			<label class='control-label'>&nbsp;</label>
 			<div class='controls'>
-				<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-warning')); ?>			</div>
+				<?php echo Form::submit('submit', 'Save', array('class' => 'btn btn-large btn-warning')); ?>			</div>
 		</div>
 	</fieldset>
 <?php echo Form::close(); ?>

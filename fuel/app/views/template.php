@@ -5,19 +5,20 @@
 	<title>VG Unstuck | <?php echo $title; ?></title>
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<style>
-		body { margin: 40px; }
+		body { /*margin: 40px;*/ }
 		#tophead {background-color: #3e0092;color: white;}
-		#tophead h2 {padding-left: 10px;padding-top: 10px;}
+		#tophead h2 {padding-left: 40px;padding-top: 15px;}
 	</style>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row-fluid">
-		<div class="span12">
-			<div id="tophead">
-			<h2>VG Unstuck | <?php echo $title; ?></h2>
+	<div id="tophead">
+			<h2>VG Unstuck</h2>
 			<hr>
-		</div>
+	</div>
+	<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			
 <?php if (Session::get_flash('success')): ?>
 			<div class="alert alert-success">
 				<strong>Success</strong>
@@ -37,9 +38,9 @@
 		</div>
 	</div>
 		<div class="row-fluid">
-		<div class="span12">
+		
 <?php echo $content; ?>
-		</div>
+		
 		</div>
 		<footer>
 			<!--

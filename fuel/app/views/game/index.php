@@ -1,5 +1,5 @@
 
-<h3>Listing <span class='muted'>Games</span></h3>
+<h3><span class='muted'>Listing</span> Games</h3>
 
 <br>
 <?php if ($games): ?>
@@ -19,7 +19,20 @@
 
 			<td><?php echo $game->user; ?></td>
 			<td><?php echo $game->title; ?></td>
-			<td><?php echo $game->status; ?></td>
+			<td><?php 
+				if($game->status=='In Progress'){
+						echo "<span class='label label-success'>$game->status</span>"; 
+					}else if($game->status=='Stuck'){
+						echo "<span class='label label-important'>$game->status</span>"; 
+					}else if($game->status=='Finished'){
+						echo "<span class='label label-info'>$game->status</span>"; 
+					}elseif($game->status=='Not Started'){
+						echo "<span class='label'>$game->status</span>"; 
+					}else{
+						echo $game->status; 
+				}
+			?>
+			</td>
 			<td><?php echo $game->comment; ?></td>
 			<td>
 				<?php echo Html::anchor('game/view/'.$game->id, '<i class="icon-eye-open" title="View"></i>'); ?> |
