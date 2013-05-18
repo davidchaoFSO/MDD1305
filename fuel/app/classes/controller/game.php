@@ -3,7 +3,7 @@ class Controller_Game extends Controller_Template{
 
 	public function action_index()
 	{
-		$data['games'] = Model_Game::find('all');
+		$data['games'] = Model_Game::find('all');	// <!--NOTE: this needs to be changed once auth is in-->
 		$this->template->title = "Games";
 		$this->template->content = View::forge('game/index', $data);
 
@@ -41,7 +41,7 @@ class Controller_Game extends Controller_Template{
 
 				if ($game and $game->save())
 				{
-					Session::set_flash('success', 'Added game #'.$game->id.'.');
+					Session::set_flash('success', 'Added '.$game->title.'.');
 
 					Response::redirect('game');
 				}
@@ -83,14 +83,14 @@ class Controller_Game extends Controller_Template{
 
 			if ($game->save())
 			{
-				Session::set_flash('success', 'Updated game #' . $id);
+				Session::set_flash('success', 'Updated ' . $game->title);
 
 				Response::redirect('game');
 			}
 
 			else
 			{
-				Session::set_flash('error', 'Could not update game #' . $id);
+				Session::set_flash('error', 'Could not update ' . $game->title);
 			}
 		}
 
@@ -122,12 +122,12 @@ class Controller_Game extends Controller_Template{
 		{
 			$game->delete();
 
-			Session::set_flash('success', 'Deleted game #'.$id);
+			Session::set_flash('success', 'Deleted '.$game->title);
 		}
 
 		else
 		{
-			Session::set_flash('error', 'Could not delete game #'.$id);
+			Session::set_flash('error', 'Could not delete '.$game->title);
 		}
 
 		Response::redirect('game');

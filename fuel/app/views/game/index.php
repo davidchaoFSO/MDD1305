@@ -7,7 +7,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>User</th>
+			<th>User</th>	<!--NOTE: this needs to be changed once auth is in-->
 			<th>Title</th>
 			<th>Status</th>
 			<th>Comment</th>
@@ -17,9 +17,10 @@
 	<tbody>
 <?php foreach ($games as $game): ?>		<tr>
 
-			<td><?php echo $game->user; ?></td>
+			<td><?php echo $game->user; ?></td>	<!--NOTE: this needs to be changed once auth is in-->
 			<td><?php echo $game->title; ?></td>
 			<td><?php 
+				//	Status Labeling
 				if($game->status=='In Progress'){
 						echo "<span class='label label-success'>$game->status</span>"; 
 					}else if($game->status=='Stuck'){

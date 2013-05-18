@@ -13,7 +13,8 @@
 <div class='span4'>
 <p>
 	<strong>Status:</strong>
-	<?php 
+<?php 
+//	Status Labeling
 	if($game->status=='In Progress'){
 		echo "<span class='label label-success'>$game->status</span>"; 
 	}else if($game->status=='Stuck'){
@@ -34,7 +35,15 @@
 	<?php echo $game->comment; ?></p>
 </div>
 </div>
+<?php 
+//	Unstuck me Button - does nothing right now
+	if($game->status=='Stuck'){
+	echo Html::anchor('#', 'Unstuck Me!',array('class' => 'btn btn-large btn-warning'));
+	}
+?>
+
+<hr>
 <div class='btn-group'>
 <?php echo Html::anchor('game', 'Back to Game List',array('class' => 'btn btn-inverse')); ?>
-<?php echo Html::anchor('game/edit/'.$game->id, 'Edit This Entry',array('class' => 'btn btn-warning')); ?>
+<?php echo Html::anchor('game/edit/'.$game->id, 'Edit This Entry',array('class' => 'btn')); ?>
 </div>
