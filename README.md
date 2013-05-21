@@ -22,6 +22,10 @@ The Index/View/Edit pages show 'User' field for now because authentication is no
 Signup View will be delivered once authentication is implemented.
 List and Details views will receive more changes in future versions.
 
+Notes for 3.1:
+auth.php simpleauth.php config.php added/updated for authentication
+
+
 
 =======
 MDD1305

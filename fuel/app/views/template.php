@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>VG Unstuck | <?php echo $title; ?></title>
+	<title>VG Unstuck &#124; <?php echo $title; ?></title>
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<style>
 		body { /*margin: 40px;*/ }

@@ -133,6 +133,6 @@ class Controller_Game extends Controller_Template{
 		Response::redirect('game');
 
 	}
-
+	
 
 }

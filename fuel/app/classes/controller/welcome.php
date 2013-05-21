@@ -30,7 +30,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
+		return Response::redirect('game');
 	}
 
 	/**
@@ -55,4 +55,7 @@ class Controller_Welcome extends Controller
 	{
 		return Response::forge(ViewModel::forge('welcome/404'), 404);
 	}
+
+	
+
 }

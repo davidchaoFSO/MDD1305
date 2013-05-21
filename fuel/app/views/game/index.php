@@ -50,5 +50,6 @@
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('game/create', 'Add new Game', array('class' => 'btn btn-warning')); ?>
+	
 
 </p>
