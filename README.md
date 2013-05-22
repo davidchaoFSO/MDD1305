@@ -50,6 +50,8 @@ No character for password validations yet! Password reset and Need Help report a
 
 Signup View now delivered. /auth/create.php
 
+User restrictions in place. Users should be not able to create/read/update/delete  other users' entries or while not logged in.
+
 
 
 
