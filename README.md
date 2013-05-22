@@ -1,29 +1,57 @@
 
 README
+
 by David Chao
+
 MDD1305
+
 
 Project Name: VG_Unstuck
 
-Installation guide: 
+
+Installation guide:
+
 1. Download the zip from github repository and extract the folder to your htdocs (if you use MAMP). Make note of the folder name (referred to as 'abovefoldername' below). 
-2. Home page starts at http://localhost:8888/abovefoldername/public. (URL may differ depending on where your server is set up. This goes to the welcome page for now, which will not have any of my work. URL change will be coming later.)
+
+2. Home page starts at http://localhost:8888/abovefoldername/public.
+
 3. CRUD pages start at http://localhost:8888/abovefoldername/public/game. 
+
 4. Before trying any CRUD functions, the database will be need to be created. The name of the DB I use is mdd1305. After mdd1305 is created, run the entire command in the latest .sql file inside abovefoldername/assets to create the tables. (If you need to create the tables in another database and/or location, be sure to change the settings in abovefoldername/fuel/app/config/db.php or else it won't connect.)
 
+
 Notes for 2.1:
+
 API Proof of Concept is found in the abovefoldername/assets folder - file: api.html
+
 Style Guides are also found in the same assets folder - .jpg files
+
 Responsive design can be tested by resizing the window at the CRUD pages.
+
 Not all styles from style guides may be implemented.
 
+
 Notes for 2.2:
+
 The Index/View/Edit pages show 'User' field for now because authentication is not yet implemented. You should no longer see this field in future versions.
+
 Signup View will be delivered once authentication is implemented.
+
 List and Details views will receive more changes in future versions.
 
+
 Notes for 3.1:
-auth.php simpleauth.php config.php added/updated for authentication
+
+auth.php simpleauth.php config.php config files added/updated for authentication.
+
+auth controller and session checking added.
+
+No character for password validations yet! Password reset and Need Help report actions not yet implemented.
+
+Signup View now delivered. /auth/create.php
+
+
+
 
 
 

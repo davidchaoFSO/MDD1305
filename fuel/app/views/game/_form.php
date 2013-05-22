@@ -5,7 +5,7 @@
 			<?php echo Form::label('User', 'user', array('class'=>'control-label')); ?><!--NOTE: this needs to be changed once auth is in-->
 
 			<div class="controls">
-				<?php echo Form::input('user', Input::post('user', isset($game) ? $game->user : ''), array('class' => 'span4', 'placeholder'=>'User')); ?>
+				<?php echo Form::input('user', Input::post('user', \Session::get('username')), array('class' => 'span4', 'placeholder'=>\Session::get('username'), 'readonly')); ?>
 
 			</div>
 		</div>

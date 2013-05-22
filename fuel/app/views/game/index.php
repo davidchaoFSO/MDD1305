@@ -7,7 +7,7 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>User</th>	<!--NOTE: this needs to be changed once auth is in-->
+			<!--<th>User</th>	NOTE: this needs to be changed once auth is in-->
 			<th>Title</th>
 			<th>Status</th>
 			<th>Comment</th>
@@ -17,7 +17,7 @@
 	<tbody>
 <?php foreach ($games as $game): ?>		<tr>
 
-			<td><?php echo $game->user; ?></td>	<!--NOTE: this needs to be changed once auth is in-->
+			<!--<td><?php echo $game->user; ?></td>	NOTE: this needs to be changed once auth is in-->
 			<td><?php echo $game->title; ?></td>
 			<td><?php 
 				//	Status Labeling
@@ -50,6 +50,9 @@
 
 <?php endif; ?><p>
 	<?php echo Html::anchor('game/create', 'Add new Game', array('class' => 'btn btn-warning')); ?>
-	
+	<?php
+	$name = \Session::get('username'); 
+	echo Html::anchor('auth/logout', 'Not '.$name.'? Log out here!', array('class' => 'btn btn-inverse')); 
+	?>
 
 </p>

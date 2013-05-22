@@ -2,15 +2,34 @@
 class Controller_Game extends Controller_Template{
 
 	public function action_index()
-	{
-		$data['games'] = Model_Game::find('all');	// <!--NOTE: this needs to be changed once auth is in-->
+	{	// If user is logged in
+		if (!(\Session::get('username'))) {
+	    	 Response::redirect('auth/index');
+	    }else{
+	    $user = \Session::get('username');
+	    // Query only finds list for logged in user
+		$data['games'] = Model_Game::find('all', array(
+		    'where' => array(array('user', $user),),
+		    'order_by' => array('updated_at' => 'desc'),));	
 		$this->template->title = "Games";
 		$this->template->content = View::forge('game/index', $data);
-
+		}
 	}
 
 	public function action_view($id = null)
 	{
+		
+		if($game = Model_Game::find($id)){
+
+			$name = \Session::get('username');
+
+			if(!($game->user == $name)) {
+				// if logged in user tries to view another user's entry
+				$id=null;
+				Session::set_flash('error', 'Could not find that game!');
+			}
+		}
+
 		is_null($id) and Response::redirect('game');
 
 		if ( ! $data['game'] = Model_Game::find($id))
@@ -26,6 +45,10 @@ class Controller_Game extends Controller_Template{
 
 	public function action_create()
 	{
+		if (!($name = \Session::get('username')))
+		{	//If no user is logged in
+			Response::redirect('auth/index');
+		}else
 		if (Input::method() == 'POST')
 		{
 			$val = Model_Game::validate('create');
@@ -64,6 +87,17 @@ class Controller_Game extends Controller_Template{
 
 	public function action_edit($id = null)
 	{
+		if($game = Model_Game::find($id)){
+
+			$name = \Session::get('username');
+
+			if(!($game->user == $name)) {
+				// if logged in user tries to view another user's entry
+				$id=null;
+				Session::set_flash('error', 'Could not find that game!');
+			}
+		}
+
 		is_null($id) and Response::redirect('game');
 
 		if ( ! $game = Model_Game::find($id))
@@ -116,13 +150,25 @@ class Controller_Game extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
+		if(!($name = \Session::get('username')))
+		{
+			$id = null;
+		}
+
 		is_null($id) and Response::redirect('game');
 
 		if ($game = Model_Game::find($id))
 		{
+
+			if(!($game->user == $name)) {
+				// if logged in user tries to delete another user's entry
+				Session::set_flash('error', 'Could not find that game!');
+			}else{
+
 			$game->delete();
 
 			Session::set_flash('success', 'Deleted '.$game->title);
+			}
 		}
 
 		else
