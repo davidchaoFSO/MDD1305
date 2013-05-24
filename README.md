@@ -9,11 +9,11 @@ What this website application does is allow users to keep a list of video games 
 
 ###Installation guide:
 
-1. Download the zip from github repository and extract the folder to your htdocs (if you use MAMP). Make note of the folder name (referred to as 'abovefoldername' below)
+1. Download the zip from github repository and extract the folder to your htdocs (if you use MAMP). Make note of the folder name (most likely MDD1305-master; will be referred to as 'abovefoldername' below)
 2. Home page starts at http://localhost:8888/abovefoldername/public
 3. CRUD pages start at http://localhost:8888/abovefoldername/public/game
 4. Before trying any CRUD functions, the database will be need to be created. The name of the DB I use is mdd1305. After mdd1305 is created, run the entire command in the latest .sql file inside abovefoldername/assets to create the tables. (If you need to create the tables in another database and/or location, be sure to change the settings in abovefoldername/fuel/app/config/db.php or else it won't connect.)  
-NOTE: you may need to download the fuel/core and fuel/packages/auth folders from the FuelPHP site since git does not push these to github for some reason.
+NOTE: you will need to download the fuel/core and fuel/packages folder from the FuelPHP site fuelphp.com since git will not push it to github for some reason. If you get a notice about updating composer, you will need to run that command in Terminal at http://localhost:8888/abovefoldername/. If the home page does not load, try loading the CRUD pages (above)
 
 ---
 

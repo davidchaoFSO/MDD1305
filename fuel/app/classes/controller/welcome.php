@@ -30,7 +30,7 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::redirect('game');
+		return Response::redirect('welcome/index');
 	}
 
 	/**
