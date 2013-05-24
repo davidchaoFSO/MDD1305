@@ -31,7 +31,7 @@ NOTE: you may need to download the fuel/core and fuel/packages/auth folders from
 * List and Details views will receive more changes in future versions
 
 
-###Notes for 3.1:
+###Notes for 3.1: Please use 3.11 for review. See Notes below
 
 * You should be able to create a user account, log in, add a game, see the game you just added, view details for any entries you just created ('Stuck' should see an 'Unstuck Me' button), edit any of your entries, delete any of your entries, logout. You can also test my login (user:davidchao pw:password)
 * auth.php, simpleauth.php, config.php config files added/updated for authentication
@@ -43,6 +43,10 @@ NOTE: you may need to download the fuel/core and fuel/packages/auth folders from
 * Report misuse: tentative plan to send email to developer (me) with a button, same function as the 'Need Help' button. Not yet implemented
 * No character for password validations yet! Password reset placeholder button not yet implemented
 * Logo and Unstuck button still not yet implemented
+
+### Notes for 3.11:
+
+* Added SQL dump to assets folder. It was left off 3.1
 
 ---
 
