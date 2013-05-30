@@ -6,7 +6,8 @@
     <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
     <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
 	    <span class="icon-bar"></span>
-	    
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
     </a>
      
     <!-- Be sure to leave the brand out there if you want it shown -->
@@ -40,6 +41,6 @@
     </div>
 
 <h3>How Can We Help?</h3>
-<br><br><br>
+<br>
 
 <?php echo Html::anchor('auth/reset', 'Click here to Reset Password',array('class' => 'btn btn-warning')); ?>

@@ -10,3 +10,5 @@
 <p></p>
 
 <?php echo Html::anchor('game/help', 'Forgot your password? Reset it here!',array('class' => 'btn btn-small btn-inverse')); ?>
+<p></p>
+<?php echo Html::anchor('game/welcome', 'Back to Home',array('class' => 'btn btn-small btn-primary')); ?>

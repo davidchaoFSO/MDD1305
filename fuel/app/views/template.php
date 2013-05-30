@@ -13,6 +13,15 @@
 	</style>
 </head>
 <body>
+	<!-- FaceBook SDK -->
+	<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<div id="tophead">
 			<h2>VG Unstuck</h2>
 			<hr>
@@ -40,8 +49,8 @@
 					
 	</div>
 	<div class="row-fluid">
-	<div class="span12">
-		
+	<div class="span4 fb-like-box" data-href="https://www.facebook.com/FacebookDevelopers" data-width="250" data-show-faces="false" data-stream="true" data-show-border="true" data-header="true"></div>
+	<div class="span8">
 		<?php echo $content; ?>
 	</div>
 	</div>

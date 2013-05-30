@@ -48,10 +48,13 @@ NOTE: you will need to download the fuel/core and fuel/packages folder from the 
 
 * Added SQL dump to assets folder. It was left off 3.1
 
-###Notes for 3.2:
+###Notes for 3.2 and 4.1:
 
 * Style guide for user profile is the same as signup
 * User can now edit their user profile (again no input field validations yet; date type input field only works in safari and opera at the moment)
+* Responsive navigation bar has now been added
+* User can now reset password albeit not securely. Need suggestions on this
+* Sample Facebook feed has been added to the page. Facebook Developers paged used since custom created page wasn't showing activity for some reason. I'm not a FaceBook user unfortunately
 
 ---
 
