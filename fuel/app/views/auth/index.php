@@ -1,5 +1,7 @@
 
-<h3>Log In</h3>
+
+
+<h3>Welcome! Please Log In</h3>
 <br>
 
 <?php echo render('auth/_loginform'); ?>

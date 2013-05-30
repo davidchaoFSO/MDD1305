@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
+	<meta charset="utf-8"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>VG Unstuck &#124; <?php echo $title; ?></title>
-	<?php echo Asset::css('bootstrap.css'); ?>
+	<?php echo Asset::css('bootstrap.min.css'); ?>
+	<?php echo Asset::css('bootstrap-responsive.min.css'); ?>
 	<style>
 		body { /*margin: 40px;*/ }
 		#tophead {background-color: #3e0092;color: white;}
@@ -17,7 +19,7 @@
 	</div>
 	<div class="container-fluid">
 	<div class="row-fluid">
-		<div class="span12">
+		
 			
 <?php if (Session::get_flash('success')): ?>
 			<div class="alert alert-success">
@@ -35,7 +37,7 @@
 				</p>
 			</div>
 <?php endif; ?>
-		</div>
+		
 	</div>
 		<div class="row-fluid">
 		
@@ -52,5 +54,7 @@
 		-->
 		</footer>
 	</div>
+	<?php echo Asset::js('http://code.jquery.com/jquery-1.10.0.min.js'); ?>
+	<?php echo Asset::js('bootstrap.min.js'); ?>
 </body>
 </html>

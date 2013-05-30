@@ -5,12 +5,12 @@ class Controller_Auth extends Controller_Template
 
 	public function action_index()
 	{
-		$data["subnav"] = array('index'=> 'active' );
+		$data["subnav"] = array('index'=> 'active' ); // Not used but still passed
 
 	    $user = array();
 	    // Check if session variables already exist
 	    if (\Session::get('username')) {
-	    	 Response::redirect('game');
+	    	 Response::redirect('game/welcome');
 	    } else
 	    // If so, you pressed the submit button. Let's go over the steps.
 	    if (Input::post())
@@ -25,7 +25,7 @@ class Controller_Auth extends Controller_Template
 	            // Credentials ok, go right in.
 	            Session::set_flash('success', 'Logged in successfully!');
 	            
-	            Response::redirect('game');
+	            Response::redirect('game/welcome');
 
 	        }
 	        else
@@ -50,7 +50,7 @@ class Controller_Auth extends Controller_Template
 
 		// Check if session variables already exist
 	    if (\Session::get('username')) {
-	    	 Response::redirect('game');
+	    	 Response::redirect('game/welcome');
 	    } else
 
 		// If so, you pressed the submit button. Let's go over the steps.
@@ -70,7 +70,7 @@ class Controller_Auth extends Controller_Template
 		            // Credentials ok, go right in.
 		            Session::set_flash('success', 'Logged in successfully!');
 		            
-		            Response::redirect('game');
+		            Response::redirect('game/welcome');
 		            //echo \Session::get('username');
 		            //echo \Session::get('login_hash');
 		        }
@@ -102,7 +102,7 @@ class Controller_Auth extends Controller_Template
 
 	public function action_reset()
 	{	// Password reset
-		Response::redirect('game');
+		Response::redirect('game/welcome');
 		$data["subnav"] = array('reset'=> 'active' );
 		$this->template->title = 'Auth &raquo; Reset';
 		$this->template->content = View::forge('auth/reset', $data);
@@ -115,11 +115,11 @@ class Controller_Auth extends Controller_Template
 
 		// Check if session variables already exist
 	    if (!(\Session::get('username'))) {
-	    	 Response::redirect('auth/index');
+	    	 Response::redirect('game/welcome');
 	    } else
 		if (!Auth::logout()) {	// Auth::logout() always returns false for some reason, even though session variables are deleted
 			Session::set_flash('success', 'Logged out successfully!');
-	        Response::redirect('auth/index');
+	        Response::redirect('game/welcome');
 		}
 		else
 		{
@@ -135,7 +135,7 @@ class Controller_Auth extends Controller_Template
 	public function action_delete()
 	{	// Under review if account deletion is necessary
 
-		Response::redirect('game');
+		Response::redirect('game/welcome');
 
 		$data["subnav"] = array('delete'=> 'active' );
 		$this->template->title = 'Auth &raquo; Delete';
@@ -144,11 +144,11 @@ class Controller_Auth extends Controller_Template
 
 	public function action_profile()
 	{
-		$data["subnav"] = array('profile'=> 'active' );
+		$data['subnav'] = array('profile'=> 'active' );
 
 		// Check if session variables already exist
 	    if (!(\Session::get('username'))) {
-	    	 Response::redirect('game');
+	    	 Response::redirect('auth/index');
 	    } else
 
 		// If so, you pressed the submit button. Let's go over the steps.

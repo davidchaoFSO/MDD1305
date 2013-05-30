@@ -51,7 +51,7 @@ NOTE: you will need to download the fuel/core and fuel/packages folder from the 
 ###Notes for 3.2:
 
 * Style guide for user profile is the same as signup
-* User can now edit their user profile (again no input field validations yet; date input field only works in safari and opera at the moment)
+* User can now edit their user profile (again no input field validations yet; date type input field only works in safari and opera at the moment)
 
 ---
 

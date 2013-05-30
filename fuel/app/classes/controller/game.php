@@ -8,6 +8,7 @@ class Controller_Game extends Controller_Template{
 	    }else{
 	    $user = \Session::get('username');
 	    // Query only finds list for logged in user
+	    $data['subnav'] = array('games'=> 'active' );
 		$data['games'] = Model_Game::find('all', array(
 		    'where' => array(array('user', $user),),
 		    'order_by' => array('updated_at' => 'desc'),));	
@@ -80,7 +81,7 @@ class Controller_Game extends Controller_Template{
 			}
 		}
 
-		$this->template->title = "Games";
+		$this->template->title = "Add Game";
 		$this->template->content = View::forge('game/create');
 
 	}
@@ -143,7 +144,7 @@ class Controller_Game extends Controller_Template{
 			$this->template->set_global('game', $game, false);
 		}
 
-		$this->template->title = "Games";
+		$this->template->title = "Edit Game";
 		$this->template->content = View::forge('game/edit');
 
 	}
@@ -179,6 +180,18 @@ class Controller_Game extends Controller_Template{
 		Response::redirect('game');
 
 	}
-	
+
+	public function action_welcome()
+	{
+		$data['subnav'] = array('home'=> 'active' );
+		$this->template->title = "Home";
+		$this->template->content = View::forge('game/welcome', $data);
+	}
+	public function action_help()
+	{
+		$data['subnav'] = array('help'=> 'active' );
+		$this->template->title = "Help";
+		$this->template->content = View::forge('game/help', $data);
+	}
 
 }
