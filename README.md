@@ -48,6 +48,11 @@ NOTE: you will need to download the fuel/core and fuel/packages folder from the 
 
 * Added SQL dump to assets folder. It was left off 3.1
 
+###Notes for 3.2:
+
+* Style guide for user profile is the same as signup
+* User can now edit their user profile (again no input field validations yet; date input field only works in safari and opera at the moment)
+
 ---
 
 GitHub created for 1305 Mobile Device Deployment Online at Fullsail University

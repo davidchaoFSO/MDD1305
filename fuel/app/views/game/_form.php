@@ -2,8 +2,7 @@
 
 	<fieldset>
 		<div class="control-group">
-			<?php echo Form::label('User', 'user', array('class'=>'control-label')); ?><!--NOTE: this needs to be changed once auth is in-->
-
+			<?php echo Form::label('User', 'user', array('class'=>'control-label')); ?>
 			<div class="controls">
 				<?php echo Form::input('user', Input::post('user', \Session::get('username')), array('class' => 'span4', 'placeholder'=>\Session::get('username'), 'readonly')); ?>
 

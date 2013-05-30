@@ -142,4 +142,62 @@ class Controller_Auth extends Controller_Template
 		$this->template->content = View::forge('auth/delete', $data);
 	}
 
+	public function action_profile()
+	{
+		$data["subnav"] = array('profile'=> 'active' );
+
+		// Check if session variables already exist
+	    if (!(\Session::get('username'))) {
+	    	 Response::redirect('game');
+	    } else
+
+		// If so, you pressed the submit button. Let's go over the steps.
+		if(Input::post())
+		{
+			$first = Input::post('firstname');
+	    	$last = Input::post('lastname');
+	    	$birth = Input::post('birthdate');
+
+	    	if(Input::post('newsletter') == 'yes')
+	    	{
+	    		$letter = 1;
+
+	    	}else{
+	    		$letter = 0;
+	    	}
+	    	
+
+	        // Update account with below metadata
+	        if (Auth::update_user(
+	        		array(
+	        			'firstname'=>$first,
+	        			'lastname'=>$last,
+	        			'birthdate'=>$birth,
+	        			'newsletter'=>$letter,
+
+	        		)
+
+	        	))
+	        {
+	            // Successful account creation in DB
+	            Session::set_flash('success', 'Profile updated successfully!');
+	            
+	        }
+	        else
+	        {
+	            // Account creation failed
+	            Session::set_flash('error', 'Profile update failed! Please send us a report with the &quot;Need Help?&quot; button below.');
+	        }
+
+		}
+
+
+
+
+
+
+		$this->template->title = 'User Profile';
+		$this->template->content = View::forge('auth/profile', $data);
+	}
+
 }
