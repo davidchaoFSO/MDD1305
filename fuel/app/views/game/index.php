@@ -86,6 +86,7 @@
 <p>No Games.</p>
 
 <?php endif; ?><p>
+<hr>
 	<?php echo Html::anchor('game/create', 'Add new Game', array('class' => 'btn btn-warning')); ?>
 	
 

@@ -2,6 +2,7 @@
 <br>
 
 <?php echo render('game/_form'); ?>
+<hr>
 <div class="btn-group">
 	
 	<?php echo Html::anchor('game', 'Back to Game List',array('class' => 'btn btn-inverse')); ?>

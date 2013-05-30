@@ -38,3 +38,8 @@
     </div>
     </div>
     </div>
+
+<h3>How Can We Help?</h3>
+<br><br><br>
+
+<?php echo Html::anchor('auth/reset', 'Click here to Reset Password',array('class' => 'btn btn-warning')); ?>

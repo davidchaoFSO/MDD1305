@@ -1,9 +1,16 @@
-<ul class="nav nav-pills">
-	<li class='<?php echo Arr::get($subnav, "index" ); ?>'><?php echo Html::anchor('auth/index','Index');?></li>
-	<li class='<?php echo Arr::get($subnav, "create" ); ?>'><?php echo Html::anchor('auth/create','Create');?></li>
-	<li class='<?php echo Arr::get($subnav, "reset" ); ?>'><?php echo Html::anchor('auth/reset','Reset');?></li>
-	<li class='<?php echo Arr::get($subnav, "logout" ); ?>'><?php echo Html::anchor('auth/logout','Logout');?></li>
-	<li class='<?php echo Arr::get($subnav, "delete" ); ?>'><?php echo Html::anchor('auth/delete','Delete');?></li>
+<h3>Reset Password</h3>
+<br>
 
-</ul>
-<p>Reset</p>
+<?php 
+if (Auth::get_screen_name())
+{
+echo render('auth/_resetformb');
+}else{
+echo render('auth/_resetform');
+}
+
+?>
+<hr>
+<?php echo Html::anchor('auth/index', 'Try logging in again?',array('class' => 'btn btn-small btn-info')); ?>
+<p></p>
+<?php echo Html::anchor('game/help', 'Need more help? Return to Help Page!',array('class' => 'btn btn-small btn-inverse')); ?>

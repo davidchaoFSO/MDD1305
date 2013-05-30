@@ -3,10 +3,10 @@ class Controller_Game extends Controller_Template{
 
 	public function action_index()
 	{	// If user is logged in
-		if (!(\Session::get('username'))) {
+		if (!($user = Auth::get_screen_name())) {
 	    	 Response::redirect('auth/index');
 	    }else{
-	    $user = \Session::get('username');
+	    //$user = Auth::get_screen_name();
 	    // Query only finds list for logged in user
 	    $data['subnav'] = array('games'=> 'active' );
 		$data['games'] = Model_Game::find('all', array(
@@ -22,7 +22,7 @@ class Controller_Game extends Controller_Template{
 		
 		if($game = Model_Game::find($id)){
 
-			$name = \Session::get('username');
+			$name = Auth::get_screen_name();
 
 			if(!($game->user == $name)) {
 				// if logged in user tries to view another user's entry
@@ -46,7 +46,7 @@ class Controller_Game extends Controller_Template{
 
 	public function action_create()
 	{
-		if (!($name = \Session::get('username')))
+		if (!($name = Auth::get_screen_name()))
 		{	//If no user is logged in
 			Response::redirect('auth/index');
 		}else
@@ -90,7 +90,7 @@ class Controller_Game extends Controller_Template{
 	{
 		if($game = Model_Game::find($id)){
 
-			$name = \Session::get('username');
+			$name = Auth::get_screen_name();
 
 			if(!($game->user == $name)) {
 				// if logged in user tries to view another user's entry
@@ -151,7 +151,7 @@ class Controller_Game extends Controller_Template{
 
 	public function action_delete($id = null)
 	{
-		if(!($name = \Session::get('username')))
+		if(!($name = Auth::get_screen_name()))
 		{
 			$id = null;
 		}

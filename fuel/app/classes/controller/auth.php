@@ -9,7 +9,7 @@ class Controller_Auth extends Controller_Template
 
 	    $user = array();
 	    // Check if session variables already exist
-	    if (\Session::get('username')) {
+	    if (Auth::get_screen_name()) {
 	    	 Response::redirect('game/welcome');
 	    } else
 	    // If so, you pressed the submit button. Let's go over the steps.
@@ -49,7 +49,7 @@ class Controller_Auth extends Controller_Template
 		$data["subnav"] = array('create'=> 'active' );
 
 		// Check if session variables already exist
-	    if (\Session::get('username')) {
+	    if (Auth::get_screen_name()) {
 	    	 Response::redirect('game/welcome');
 	    } else
 
@@ -70,9 +70,8 @@ class Controller_Auth extends Controller_Template
 		            // Credentials ok, go right in.
 		            Session::set_flash('success', 'Logged in successfully!');
 		            
-		            Response::redirect('game/welcome');
-		            //echo \Session::get('username');
-		            //echo \Session::get('login_hash');
+		            Response::redirect('auth/profile');
+		            
 		        }
 		        else
 		        {
@@ -102,9 +101,53 @@ class Controller_Auth extends Controller_Template
 
 	public function action_reset()
 	{	// Password reset
-		Response::redirect('game/welcome');
-		$data["subnav"] = array('reset'=> 'active' );
-		$this->template->title = 'Auth &raquo; Reset';
+		$data['subnav'] = array('reset'=> 'active' );
+		// If already logged in
+		if($name=Auth::get_screen_name())
+		{
+			if(Input::post())
+			{
+			
+			$oldpass = Input::post('password');
+			$newpass = Input::post('newpass');
+	    	
+
+	        // change password
+	      	if(Auth::change_password($oldpass,$newpass,$name) && Auth::validate_user($name,$newpass))
+	    		{
+	            // Successful password update
+	            Session::set_flash('success', 'Your password has been changed!');
+	            Response::redirect('game/welcome');
+	        	}
+	        	else{
+	        		Session::set_flash('error', 'Password reset failed somehow! Please send us a report with the &quot;Need Help?&quot; button above.');
+	        	}
+	            
+	        
+	    }
+
+		} else
+		// If not logged in (NOT SECURE)
+		if(Input::post())
+		{
+			$name = Input::post('username');
+	    	
+
+	        // reset password
+	      	if(($newpass = Auth::reset_password($name)) && (Auth::login($name,$newpass)))
+	    		{
+	            // Successful password update
+	            Session::set_flash('success', 'Your password has been reset to '.$newpass.'. This is NOT secure and needs to be improved upon!');
+	            Response::redirect('auth/reset');
+	        	}
+	        	else{
+	        		Session::set_flash('error', 'Password reset failed somehow! Please send us a report with the &quot;Need Help?&quot; button above.');
+	        	}
+	            
+	        
+	    }
+
+	    $this->template->title = 'Reset Password';
 		$this->template->content = View::forge('auth/reset', $data);
 	}
 
@@ -114,7 +157,7 @@ class Controller_Auth extends Controller_Template
 
 
 		// Check if session variables already exist
-	    if (!(\Session::get('username'))) {
+	    if (!(Auth::get_screen_name())) {
 	    	 Response::redirect('game/welcome');
 	    } else
 		if (!Auth::logout()) {	// Auth::logout() always returns false for some reason, even though session variables are deleted
@@ -124,8 +167,8 @@ class Controller_Auth extends Controller_Template
 		else
 		{
 			
-			// Account creation failed
-	        Session::set_flash('error', 'Logout failed somehow! Please send us a report with the &quot;Need Help?&quot; button below.');
+			// Logout failed
+	        Session::set_flash('error', 'Logout failed somehow! Please send us a report with the &quot;Need Help?&quot; button above.');
 	    }
 
 		$this->template->title = 'Logout';
@@ -147,9 +190,11 @@ class Controller_Auth extends Controller_Template
 		$data['subnav'] = array('profile'=> 'active' );
 
 		// Check if session variables already exist
-	    if (!(\Session::get('username'))) {
+	    if (!(Auth::get_screen_name())) {
 	    	 Response::redirect('auth/index');
 	    } else
+
+
 
 		// If so, you pressed the submit button. Let's go over the steps.
 		if(Input::post())
@@ -157,6 +202,7 @@ class Controller_Auth extends Controller_Template
 			$first = Input::post('firstname');
 	    	$last = Input::post('lastname');
 	    	$birth = Input::post('birthdate');
+	    	$question = Input::post('question');
 
 	    	if(Input::post('newsletter') == 'yes')
 	    	{
@@ -174,18 +220,18 @@ class Controller_Auth extends Controller_Template
 	        			'lastname'=>$last,
 	        			'birthdate'=>$birth,
 	        			'newsletter'=>$letter,
-
+	        			'question'=>$question,
 	        		)
 
 	        	))
 	        {
-	            // Successful account creation in DB
+	            // Successful update in DB
 	            Session::set_flash('success', 'Profile updated successfully!');
 	            
 	        }
 	        else
 	        {
-	            // Account creation failed
+	            // Update failed
 	            Session::set_flash('error', 'Profile update failed! Please send us a report with the &quot;Need Help?&quot; button below.');
 	        }
 

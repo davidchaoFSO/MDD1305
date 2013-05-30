@@ -20,31 +20,36 @@
 	<div class="container-fluid">
 	<div class="row-fluid">
 		
-			
-<?php if (Session::get_flash('success')): ?>
-			<div class="alert alert-success">
-				<strong>Success</strong>
-				<p>
-				<?php echo implode('</p><p>', e((array) Session::get_flash('success'))); ?>
-				</p>
-			</div>
-<?php endif; ?>
-<?php if (Session::get_flash('error')): ?>
-			<div class="alert alert-error">
-				<strong>Error</strong>
-				<p>
-				<?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
-				</p>
-			</div>
-<?php endif; ?>
-		
+						
+	<?php if (Session::get_flash('success')): ?>
+				<div class="alert alert-success">
+					<strong>Success</strong>
+					<p>
+					<?php echo implode('</p><p>', e((array) Session::get_flash('success'))); ?>
+					</p>
+				</div>
+	<?php endif; ?>
+	<?php if (Session::get_flash('error')): ?>
+				<div class="alert alert-error">
+					<strong>Error</strong>
+					<p>
+					<?php echo implode('</p><p>', e((array) Session::get_flash('error'))); ?>
+					</p>
+				</div>
+	<?php endif; ?>
+					
 	</div>
+	<div class="row-fluid">
+	<div class="span12">
+		
+		<?php echo $content; ?>
+	</div>
+	</div>
+	<hr />
+	<footer>
 		<div class="row-fluid">
-		
-<?php echo $content; ?>
-		
-		</div>
-		<footer>
+		<div class="span4"></div>
+		<div class="span4 offset4">
 			<!--
 			<p class="pull-right">Page rendered in {exec_time}s using {mem_usage}mb of memory.</p>
 			<p>
@@ -52,7 +57,11 @@
 				<small>Version: <?php echo e(Fuel::VERSION); ?></small>
 			</p>
 		-->
-		</footer>
+		<p>Copyright 2013. Created for Fullsail University for educational purposes only. Last Update: 5-30-2013.</p>
+	</div>
+	</div>
+	<footer>
+		
 	</div>
 	<?php echo Asset::js('http://code.jquery.com/jquery-1.10.0.min.js'); ?>
 	<?php echo Asset::js('bootstrap.min.js'); ?>

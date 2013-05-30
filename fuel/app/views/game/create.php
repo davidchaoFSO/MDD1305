@@ -3,5 +3,5 @@
 
 <?php echo render('game/_form'); ?>
 
-
+<hr>
 <p><?php echo Html::anchor('game', 'Back to Game List',array('class' => 'btn btn-inverse')); ?></p>

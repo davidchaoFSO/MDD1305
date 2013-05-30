@@ -39,3 +39,5 @@
     </div>
     </div>
     </div>
+
+<h3>Welcome to VG Unstuck!</h3>
