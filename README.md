@@ -13,7 +13,7 @@ What this website application does is allow users to keep a list of video games 
 2. Home page starts at http://localhost:8888/abovefoldername/public
 3. CRUD pages start at http://localhost:8888/abovefoldername/public/game
 4. Before trying any CRUD functions, the database will be need to be created. The name of the DB I use is mdd1305. After mdd1305 is created, run the entire command in the latest .sql file inside abovefoldername/assets to create the tables. (If you need to create the tables in another database and/or location, be sure to change the settings in abovefoldername/fuel/app/config/db.php or else it won't connect.)  
-NOTE: you will need to download the fuel/core and fuel/packages folder from the FuelPHP site fuelphp.com since git will not push it to github for some reason. If you get a notice about updating composer, you will need to run that command in Terminal at http://localhost:8888/abovefoldername/. If the home page does not load, try loading the CRUD pages (above)
+NOTE: you will need to download the fuel/core and fuel/packages folder from the FuelPHP site fuelphp.com since git will not push it to github for some reason. If you get a notice about updating composer, you will need to run that command in Terminal at ../htdocs/abovefoldername/. If the home page does not load, try loading the CRUD pages (above)
 
 ---
 
@@ -48,13 +48,17 @@ NOTE: you will need to download the fuel/core and fuel/packages folder from the 
 
 * Added SQL dump to assets folder. It was left off 3.1
 
-###Notes for 3.2 and 4.1:
+###Notes for 3.2 - 4.2:
 
 * Style guide for user profile is the same as signup
 * User can now edit their user profile (again no input field validations yet; date type input field only works in safari and opera at the moment)
-* Responsive navigation bar has now been added
+* Responsive navigation bar has now been added. Collapses under 960 width
 * User can now reset password albeit not securely. Need suggestions on this
-* Sample Facebook feed has been added to the page. Facebook Developers paged used since custom created page wasn't showing activity for some reason. I'm not a FaceBook user unfortunately
+* Sample Facebook feed has been added to the page. Facebook Developers paged used since custom created page wasn't showing activity for some reason. I'm not a FaceBook user unfortunately so I'm not sure where the feed comes from
+* Added FAQ, Terms and Conditions to Home and Contact info at Help page
+* Unfortunately the Logo and Unstuck button are still not implemented. Since I am not an artist logo design would likely be outsourced. As for the API implemented, I am definitely not familiar with mixing php and jQuery together, so this will likely not make it to the final submission
+* Site switcher not implemented. Wasn't sure how this is done
+* Video recorded: If you can't get the site to install, you can watch the demo video here: [VG_Unstuck](http://youtu.be/w7S7q5tt8IU "VG_Unstuck")
 
 ---
 

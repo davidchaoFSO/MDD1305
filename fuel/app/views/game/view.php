@@ -38,10 +38,26 @@
 <?php 
 //	Unstuck me Button - does nothing right now
 	if($game->status=='Stuck'){
-	echo Html::anchor('#', 'Unstuck Me!',array('class' => 'btn btn-large btn-warning'));
+	echo Html::anchor('#', 'Unstuck Me! Not Working',array('class' => 'btn btn-large btn-warning', 'id'=>'unstuck'));
 	}
 ?>
+<!-- Incomplete Much more complicated than I thought
+<script> 
+var something = parses php object $game->comments into a javascript variable string with word+word+word;
+$("unstuck").click((function() {
+var youtube = "https://gdata.youtube.com/feeds/api/videos?q"+somestring+"&amp;orderby=relevance&amp;start-index=1&amp;max-results=10&amp;v=2&amp;alt=json";
+$.getJSON( youtube)
+.done(function( data ) {
+$.each( data.items, function( i, item ) {
+$( "<a/>" ).attr( "href", item.media.m ).appendTo( "#links" ); appends the links to links section
 
+});
+});
+})();
+});
+</script>
+-->
+<div id="links"></div>
 <hr>
 <div class='btn-group'>
 <?php echo Html::anchor('game', 'Back to Game List',array('class' => 'btn btn-inverse')); ?>

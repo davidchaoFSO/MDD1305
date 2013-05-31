@@ -41,4 +41,5 @@
     </div>
     </div>
 
-<h3>Welcome to VG Unstuck!</h3>
+<h3>Welcome to VG Unstuck!</h3><br>
+<?php echo render('game/_faqinfo'); ?>

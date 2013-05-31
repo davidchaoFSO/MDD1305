@@ -44,3 +44,5 @@
 <br>
 
 <?php echo Html::anchor('auth/reset', 'Click here to Reset Password',array('class' => 'btn btn-warning')); ?>
+<p></p>
+<p>Any further issues or questions can be emailed to davidchao&#64;fullsail.edu. Thanks!</p>

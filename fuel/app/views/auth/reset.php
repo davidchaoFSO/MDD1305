@@ -14,3 +14,5 @@ echo render('auth/_resetform');
 <?php echo Html::anchor('auth/index', 'Try logging in again?',array('class' => 'btn btn-small btn-info')); ?>
 <p></p>
 <?php echo Html::anchor('game/help', 'Need more help? Return to Help Page!',array('class' => 'btn btn-small btn-inverse')); ?>
+<p></p>
+<?php echo Html::anchor('game/welcome', 'Back to Home',array('class' => 'btn btn-small btn-primary')); ?>

@@ -69,7 +69,7 @@
 		<p>Copyright 2013. Created for Fullsail University for educational purposes only. Last Update: 5-30-2013.</p>
 	</div>
 	</div>
-	<footer>
+	</footer>
 		
 	</div>
 	<?php echo Asset::js('http://code.jquery.com/jquery-1.10.0.min.js'); ?>
